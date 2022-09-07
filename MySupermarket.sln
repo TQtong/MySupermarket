@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySupermarket", "MySupermar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySupermarket.Core", "MySupermarket\MySupermarket.Core\MySupermarket.Core.csproj", "{4746E71C-9986-48E0-A335-CF6684BE923F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySupermarket.Common", "MySupermarket.Common\MySupermarket.Common.csproj", "{26298843-89F7-46C0-9AE1-9A3739600A48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySupermarket.Common", "MySupermarket.Common\MySupermarket.Common.csproj", "{26298843-89F7-46C0-9AE1-9A3739600A48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySupermarket.CustomUserControl", "MySupermarket.CustomUserControl\MySupermarket.CustomUserControl.csproj", "{B4B1C4F5-4E13-4765-923C-32299CAC334C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{26298843-89F7-46C0-9AE1-9A3739600A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26298843-89F7-46C0-9AE1-9A3739600A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26298843-89F7-46C0-9AE1-9A3739600A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B1C4F5-4E13-4765-923C-32299CAC334C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B1C4F5-4E13-4765-923C-32299CAC334C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B1C4F5-4E13-4765-923C-32299CAC334C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B1C4F5-4E13-4765-923C-32299CAC334C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

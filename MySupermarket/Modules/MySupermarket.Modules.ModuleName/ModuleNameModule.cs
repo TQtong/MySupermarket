@@ -1,4 +1,5 @@
 ﻿using MySupermarket.Core;
+using MySupermarket.Modules.ModuleName.ViewModels;
 using MySupermarket.Modules.ModuleName.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -22,7 +23,10 @@ namespace MySupermarket.Modules.ModuleName
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<ViewA>();
+            containerRegistry.RegisterForNavigation<ViewA, ViewAViewModel>();
+            containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
+            //注册登录窗口
+            containerRegistry.RegisterDialog<LoginView, LoginViewModel>();
         }
     }
 }

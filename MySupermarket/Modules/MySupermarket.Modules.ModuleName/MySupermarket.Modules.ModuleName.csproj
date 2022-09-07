@@ -4,9 +4,15 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.400" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MySupermarket.Common\MySupermarket.Common.csproj" />
+    <ProjectReference Include="..\..\..\MySupermarket.CustomUserControl\MySupermarket.CustomUserControl.csproj" />
     <ProjectReference Include="..\..\MySupermarket.Core\MySupermarket.Core.csproj" />
     <ProjectReference Include="..\..\Services\MySupermarket.Services.Interfaces\MySupermarket.Services.Interfaces.csproj" />
   </ItemGroup>

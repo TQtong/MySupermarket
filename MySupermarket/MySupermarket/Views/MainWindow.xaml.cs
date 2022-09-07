@@ -54,8 +54,6 @@ namespace MySupermarket.Views
                     LeftCloseMenuToggleButton.Visibility = Visibility.Visible;
                 }
             };
-
-
         }
 
         private void LeftCloseMenuToggleButton_Click(object sender, RoutedEventArgs e)
@@ -72,7 +70,6 @@ namespace MySupermarket.Views
                     LeftOpenMenuToggleButton.Visibility = Visibility.Visible;
                 }
             };
-
         }
     }
 }

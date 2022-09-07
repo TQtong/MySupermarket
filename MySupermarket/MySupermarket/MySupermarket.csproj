@@ -5,11 +5,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\Images\login.png" />
     <None Remove="Assets\Images\title.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.400" />
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MySupermarket.Common\MySupermarket.Common.csproj" />
@@ -23,6 +28,9 @@
     <Folder Include="Assets\Styles\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Images\login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Images\title.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

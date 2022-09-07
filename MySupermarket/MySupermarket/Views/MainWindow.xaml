@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:core="clr-namespace:MySupermarket.Core;assembly=MySupermarket.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
@@ -22,15 +23,15 @@
     <Window.Resources>
 
         <Storyboard x:Key="MenuOpen">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridMenu" Storyboard.TargetProperty="(FrameworkElement.Width)">
-                <EasingDoubleKeyFrame KeyTime="0" Value="60" />
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200" />
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="navigation" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="150" />
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridMenu" Storyboard.TargetProperty="(FrameworkElement.Width)">
-                <EasingDoubleKeyFrame KeyTime="0" Value="200" />
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60" />
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="navigation" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="150" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70" />
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -174,27 +175,41 @@
 
                 <materialDesign:ColorZone>
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
                         <Grid
-                            x:Name="GridMenu"
+                            x:Name="navigation"
                             Width="60"
-                            Margin="0"
                             HorizontalAlignment="Left"
                             Background="SkyBlue">
                             <ListView
                                 Foreground="#FF1368BD"
                                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                                 ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
+                                <ListViewItem x:Name="index" Height="60">
+                                    <StackPanel
+                                        Height="60"
+                                        Margin="12,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="ViewDashboard" />
                                         <TextBlock
-                                            Margin="20,10"
+                                            x:Name="title"
+                                            Margin="20,0,0,0"
                                             VerticalAlignment="Center"
+                                            DockPanel.Dock="Right"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="首页" />
                                     </StackPanel>
@@ -260,16 +275,26 @@
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel
+                                        Height="60"
+                                        Margin="12,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="ViewDashboard" />
                                         <TextBlock
-                                            Margin="20,10"
+                                            Margin="20,0,0,0"
                                             VerticalAlignment="Center"
+                                            DockPanel.Dock="Right"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="首页" />
                                     </StackPanel>
@@ -334,6 +359,31 @@
                                             Text="个人中心" />
                                     </StackPanel>
                                 </ListViewItem>
+                                <ListViewItem  Height="60">
+                                    <StackPanel
+                                        Height="60"
+                                        Margin="12,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <materialDesign:PackIcon
+                                            Width="30"
+                                            Height="30"
+                                            VerticalAlignment="Center"
+                                            Kind="ViewDashboard" />
+                                        <TextBlock
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Center"
+                                            DockPanel.Dock="Right"
+                                            FontSize="16"
+                                            Foreground="White"
+                                            Text="首页" />
+                                    </StackPanel>
+                                </ListViewItem>
                                 <ListViewItem Height="60">
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon
@@ -341,10 +391,165 @@
                                             Height="25"
                                             Margin="10"
                                             VerticalAlignment="Center"
-                                            Kind="ViewDashboard" />
+                                            Kind="Pencil" />
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="设备管理" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Ticket" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="策略模式" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Message" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="数据统计" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Account" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="个人中心" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem  Height="60">
+                                    <StackPanel
+                                        Height="60"
+                                        Margin="12,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <materialDesign:PackIcon
+                                            Width="30"
+                                            Height="30"
+                                            VerticalAlignment="Center"
+                                            Kind="ViewDashboard" />
+                                        <TextBlock
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Center"
+                                            DockPanel.Dock="Right"
+                                            FontSize="16"
+                                            Foreground="White"
+                                            Text="首页" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Pencil" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="设备管理" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Ticket" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="策略模式" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Message" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="数据统计" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem Height="60">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
+                                            VerticalAlignment="Center"
+                                            Kind="Account" />
+                                        <TextBlock
+                                            Margin="20,10"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="个人中心" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem  Height="60">
+                                    <StackPanel
+                                        Height="60"
+                                        Margin="12,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <materialDesign:PackIcon
+                                            Width="30"
+                                            Height="30"
+                                            VerticalAlignment="Center"
+                                            Kind="ViewDashboard" />
+                                        <TextBlock
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Center"
+                                            DockPanel.Dock="Right"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="首页" />
                                     </StackPanel>
@@ -411,6 +616,8 @@
                                 </ListViewItem>
                             </ListView>
                         </Grid>
+
+                        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
                     </Grid>
                 </materialDesign:ColorZone>
             </DockPanel>
