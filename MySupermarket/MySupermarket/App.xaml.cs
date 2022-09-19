@@ -1,8 +1,12 @@
-﻿using MySupermarket.CustomUserControl;
+﻿using DryIoc;
+using MySupermarket.CustomUserControl;
 using MySupermarket.Modules.ModuleName;
+using MySupermarket.Modules.ModuleName.Common;
+using MySupermarket.Modules.ModuleName.Service;
 using MySupermarket.Services;
 using MySupermarket.Services.Interfaces;
 using MySupermarket.Views;
+using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Services.Dialogs;
@@ -22,7 +26,18 @@ namespace MySupermarket
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //注册HttpRestClient
+            //先拿到指定容器后注册服务，并对构造函数设置一个默认值
+            containerRegistry.GetContainer().Register<HttpRestClient>(made: Parameters.Of.Type<string>(serviceKey: "webUrl"));
+            //设置根路径
+            containerRegistry.GetContainer().RegisterInstance(@"http://localhost:5211/", serviceKey: "webUrl");
+
+            //注册客户端服务
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
+            containerRegistry.Register<ILoginService, LoginService>();
+
+            //注册自定义弹窗服务
+            containerRegistry.Register<IDialogHostService, DialogHostService>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -36,6 +51,8 @@ namespace MySupermarket
         protected override void OnInitialized()
         {
             base.OnInitialized();
+
+            Application.Current.MainWindow.Hide();
 
             var dialog = Container.Resolve<IDialogService>();
 
@@ -57,6 +74,27 @@ namespace MySupermarket
                 base.OnInitialized();
             });
 
+            Application.Current.MainWindow.Show();
+        }
+
+        /// <summary>
+        /// 退出当前账号
+        /// </summary>
+        public static void ExitAccout(IContainerProvider container)
+        {
+            Application.Current.MainWindow.Hide();
+            var dialog = container.Resolve<IDialogService>();
+
+            dialog.ShowDialog("LoginView", callback =>
+            {
+                if (callback.Result != ButtonResult.OK || callback.Result == ButtonResult.None)
+                {
+                    Application.Current.Shutdown();
+                    return;
+                }
+            });
+
+            Application.Current.MainWindow.Show();
         }
     }
 }

@@ -23,177 +23,187 @@
         </Style>
     </prism:Dialog.WindowStyle>
 
-    <Grid Background="Wheat">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.5*" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Image Margin="50" Source="/Assets/Images/login.png" />
+    <materialDesign:DialogHost
+        x:Name="dialogTheme"
+        DialogTheme="Inherit"
+        Identifier="Root"
+        SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
 
-        <materialDesign:Snackbar
+        <materialDesign:DrawerHost IsRightDrawerOpen="{Binding ElementName=RightToggleButton, Path=IsChecked}">
+
+            <Grid Background="Wheat">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Margin="50" Source="/Assets/Images/login.png" />
+
+                <materialDesign:Snackbar
             x:Name="loginSnackBar"
             Grid.ColumnSpan="2"
             Panel.ZIndex="1"
             MessageQueue="{materialDesign:MessageQueue}" />
 
-        <materialDesign:Transitioner Grid.Column="1" SelectedIndex="{Binding SelectIndex}">
+                <materialDesign:Transitioner Grid.Column="1" SelectedIndex="{Binding SelectIndex}">
 
-            <!--  登录界面  -->
-            <materialDesign:TransitionerSlide>
-                <DockPanel Margin="5,0" VerticalAlignment="Center">
-                    <TextBlock
+                    <!--  登录界面  -->
+                    <materialDesign:TransitionerSlide>
+                        <DockPanel Margin="5,0" VerticalAlignment="Center">
+                            <TextBlock
                         Margin="0,10"
                         DockPanel.Dock="Top"
                         FontSize="22"
                         FontWeight="Bold"
                         Text="欢迎使用" />
-                    <TextBox
+                            <TextBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请输入账号"
                         DockPanel.Dock="Top"
                         Text="{Binding Account, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <PasswordBox
+                            <PasswordBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请输入密码"
                         password:PasswordExtension.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         DockPanel.Dock="Top">
-                        <i:Interaction.Behaviors>
-                            <behavior:PasswordBehavior />
-                        </i:Interaction.Behaviors>
-                    </PasswordBox>
+                                <i:Interaction.Behaviors>
+                                    <behavior:PasswordBehavior />
+                                </i:Interaction.Behaviors>
+                            </PasswordBox>
 
-                    <Button
+                            <Button
                         Margin="0,10"
                         Command="{Binding ExecuteCommand}"
                         CommandParameter="Login"
                         Content="登   录"
                         DockPanel.Dock="Top" />
-                    <DockPanel LastChildFill="False">
-                        <TextBlock Text="注册账号">
+                            <DockPanel LastChildFill="False">
+                                <TextBlock Text="注册账号">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding ExecuteCommand}" CommandParameter="GoRegister" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                        </TextBlock>
-                        <TextBlock DockPanel.Dock="Right" Text="忘记密码?">
+                                </TextBlock>
+                                <TextBlock DockPanel.Dock="Right" Text="忘记密码?">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding ExecuteCommand}" CommandParameter="GoPassword" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                        </TextBlock>
-                    </DockPanel>
-                </DockPanel>
-            </materialDesign:TransitionerSlide>
-            <!--  登录界面  -->
+                                </TextBlock>
+                            </DockPanel>
+                        </DockPanel>
+                    </materialDesign:TransitionerSlide>
+                    <!--  登录界面  -->
 
-            <!--  注册界面  -->
-            <materialDesign:TransitionerSlide>
-                <DockPanel Margin="15" VerticalAlignment="Center">
-                    <TextBlock
+                    <!--  注册界面  -->
+                    <materialDesign:TransitionerSlide>
+                        <DockPanel Margin="15" VerticalAlignment="Center">
+                            <TextBlock
                         Margin="0,10"
                         DockPanel.Dock="Top"
                         FontSize="22"
                         FontWeight="Bold"
                         Text="注册账号" />
 
-                    <TextBox
+                            <TextBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请输入用户名"
                         DockPanel.Dock="Top"
                         Text="{Binding RegisterModel.Name}" />
-                    <TextBox
+                            <TextBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请输入账号"
                         DockPanel.Dock="Top"
                         Text="{Binding RegisterModel.Account}" />
 
-                    <PasswordBox
+                            <PasswordBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请输入密码"
                         password:PasswordExtension.Password="{Binding RegisterModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         DockPanel.Dock="Top" Cursor="Arrow">
-                        <i:Interaction.Behaviors>
-                            <behavior:PasswordBehavior />
-                        </i:Interaction.Behaviors>
-                    </PasswordBox>
+                                <i:Interaction.Behaviors>
+                                    <behavior:PasswordBehavior />
+                                </i:Interaction.Behaviors>
+                            </PasswordBox>
 
-                    <PasswordBox
+                            <PasswordBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请再次输入密码"
                         password:PasswordExtension.Password="{Binding RegisterModel.NewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         DockPanel.Dock="Top">
-                        <i:Interaction.Behaviors>
-                            <behavior:PasswordBehavior />
-                        </i:Interaction.Behaviors>
-                    </PasswordBox>
+                                <i:Interaction.Behaviors>
+                                    <behavior:PasswordBehavior />
+                                </i:Interaction.Behaviors>
+                            </PasswordBox>
 
-                    <Button
+                            <Button
                         Command="{Binding ExecuteCommand}"
                         CommandParameter="Register"
                         Content="注册账号"
                         DockPanel.Dock="Top" />
 
-                    <Button
+                            <Button
                         Margin="0,10,0,0"
                         Command="{Binding ExecuteCommand}"
                         CommandParameter="GoLogin"
                         Content="返回登录"
                         DockPanel.Dock="Top"
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
-                </DockPanel>
-            </materialDesign:TransitionerSlide>
-            <!--  注册界面  -->
+                        </DockPanel>
+                    </materialDesign:TransitionerSlide>
+                    <!--  注册界面  -->
 
-            <!--  忘记密码  -->
-            <materialDesign:TransitionerSlide>
-                <DockPanel Margin="15" VerticalAlignment="Center">
-                    <TextBlock
+                    <!--  忘记密码  -->
+                    <materialDesign:TransitionerSlide>
+                        <DockPanel Margin="15" VerticalAlignment="Center">
+                            <TextBlock
                         Margin="0,10"
                         DockPanel.Dock="Top"
                         FontSize="22"
                         FontWeight="Bold"
                         Text="找回密码" />
 
-                    <TextBox
+                            <TextBox
                         Margin="0,10"
                         materialDesign:HintAssist.Hint="请输入账号"
                         DockPanel.Dock="Top"
                         Text="{Binding RegisterModel.Account}" />
 
-                    <StackPanel
+                            <StackPanel
                         Margin="0,10"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Top"
                         Orientation="Horizontal">
-                        <TextBlock
+                                <TextBlock
                             VerticalAlignment="Center"
                             Foreground="Black"
                             Text="你的密码是：" />
-                        <TextBlock
+                                <TextBlock
                             Margin="5,10"
                             VerticalAlignment="Center"
                             Text="1" />
-                    </StackPanel>
+                            </StackPanel>
 
-                    <Button
+                            <Button
                         Command="{Binding ExecuteCommand}"
                         CommandParameter="Register"
                         Content="找回"
                         DockPanel.Dock="Top" />
 
-                    <Button
+                            <Button
                         Margin="0,10,0,0"
                         Command="{Binding ExecuteCommand}"
                         CommandParameter="GoLogin"
                         Content="返回登录"
                         DockPanel.Dock="Top"
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
-                </DockPanel>
-            </materialDesign:TransitionerSlide>
-            <!--  忘记密码  -->
+                        </DockPanel>
+                    </materialDesign:TransitionerSlide>
+                    <!--  忘记密码  -->
 
-        </materialDesign:Transitioner>
-    </Grid>
+                </materialDesign:Transitioner>
+            </Grid>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
 </UserControl>

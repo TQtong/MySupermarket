@@ -15,8 +15,6 @@ namespace MySupermarket.Modules.ModuleName.ViewModels
     [ObservableObject]
     public partial class ViewModel
     {
-
-
         public ViewModel()
         {
             var values1 = new List<float>();

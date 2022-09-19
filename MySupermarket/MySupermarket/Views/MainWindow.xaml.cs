@@ -1,4 +1,8 @@
 ﻿using MaterialDesignThemes.Wpf;
+using MySupermarket.Common.Extensions;
+using MySupermarket.CustomUserControl.Views;
+using MySupermarket.Services.Interfaces;
+using Prism.Events;
 using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
@@ -12,9 +16,58 @@ namespace MySupermarket.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IDialogHostService dialog;
+
+        public MainWindow(IEventAggregator aggregator, IDialogHostService dialog)
         {
             InitializeComponent();
+
+            //注册提示消息
+            aggregator.ResgiterHintMessage(arg =>
+            {
+                snackBar.MessageQueue.Enqueue(arg.Message);
+            });
+
+            //注册等待消息窗口
+            aggregator.Resgiter(arg =>
+            {
+                dialogTheme.IsOpen = arg.IsOpen;
+
+                if (dialogTheme.IsOpen)
+                {
+                    dialogTheme.DialogContent = new CircleProgressView();
+                }
+            });
+
+            //窗口最小化
+            btnMin.Click += (s, e) =>
+            {
+                this.WindowState = WindowState.Minimized;
+            };
+
+            //窗口最大化
+            btnMax.Click += (s, e) =>
+            {
+                if (this.WindowState == WindowState.Maximized)
+                {
+                    this.WindowState = WindowState.Normal;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Maximized;
+                }
+            };
+
+            //窗口关闭
+            btnClose.Click += async (s, e) =>
+            {
+                var dialogResult = await dialog.Question("温馨提示", $"确认退出系统 ?");
+                if (dialogResult.Result != Prism.Services.Dialogs.ButtonResult.OK)
+                {
+                    return;
+                }
+                this.Close();
+            };
 
             //窗口拖动
             colorZone.MouseMove += (s, e) =>
@@ -37,6 +90,7 @@ namespace MySupermarket.Views
                     this.WindowState = WindowState.Normal;
                 }
             };
+            this.dialog = dialog;
         }
 
         private void LeftOpenMenuToggleButton_Click(object sender, RoutedEventArgs e)
@@ -71,5 +125,6 @@ namespace MySupermarket.Views
                 }
             };
         }
+
     }
 }

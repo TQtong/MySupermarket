@@ -27,6 +27,9 @@ namespace MySupermarket.Modules.ModuleName
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             //注册登录窗口
             containerRegistry.RegisterDialog<LoginView, LoginViewModel>();
+
+            //注册弹窗（自定义弹窗，只要添加到容器里就行，不管用什么方法）
+            containerRegistry.RegisterForNavigation<MessageView, MessageViewModel>();
         }
     }
 }
