@@ -145,7 +145,7 @@ namespace MySupermarket.Modules.ModuleName.ViewModels
                 {
                     RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
                     //aggregator.SendHintMessage("登录成功", "Login");
-                    aggregator.GetEvent<UserNameEvent>().Publish(result.Result.Name);
+                    aggregator.GetEvent<UserNameEvent>().Publish(result.Result);
                 }
                 else
                 {

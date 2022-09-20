@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:convert="clr-namespace:MySupermarket.Common.Converters;assembly=MySupermarket.Common"
     xmlns:core="clr-namespace:MySupermarket.Core;assembly=MySupermarket.Core"
+    xmlns:custom="clr-namespace:MySupermarket.CustomUserControl.Views;assembly=MySupermarket.CustomUserControl"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -123,35 +124,41 @@
                                     <RowDefinition Height="auto" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                    <Button x:Name="btnMin" Style="{StaticResource MaterialDesignFlatMidBgButton}">
-                                        <Button.Content>
-                                            <materialDesign:PackIcon
-                                                Width="25"
-                                                Height="25"
-                                                VerticalAlignment="Center"
-                                                Kind="WindowMinimize" />
-                                        </Button.Content>
-                                    </Button>
-                                    <Button x:Name="btnMax" Style="{StaticResource MaterialDesignFlatMidBgButton}">
-                                        <Button.Content>
-                                            <materialDesign:PackIcon
-                                                Width="25"
-                                                Height="25"
-                                                VerticalAlignment="Center"
-                                                Kind="WindowMaximize" />
-                                        </Button.Content>
-                                    </Button>
-                                    <Button x:Name="btnClose" Style="{StaticResource MaterialDesignFlatMidBgButton}">
-                                        <Button.Content>
-                                            <materialDesign:PackIcon
-                                                Width="25"
-                                                Height="25"
-                                                VerticalAlignment="Center"
-                                                Kind="WindowClose" />
-                                        </Button.Content>
-                                    </Button>
-                                </StackPanel>
+                                <DockPanel>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        DockPanel.Dock="Left"
+                                        Text="{Binding NowTime}" />
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button x:Name="btnMin" Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                            <Button.Content>
+                                                <materialDesign:PackIcon
+                                                    Width="25"
+                                                    Height="25"
+                                                    VerticalAlignment="Center"
+                                                    Kind="WindowMinimize" />
+                                            </Button.Content>
+                                        </Button>
+                                        <Button x:Name="btnMax" Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                            <Button.Content>
+                                                <materialDesign:PackIcon
+                                                    Width="25"
+                                                    Height="25"
+                                                    VerticalAlignment="Center"
+                                                    Kind="WindowMaximize" />
+                                            </Button.Content>
+                                        </Button>
+                                        <Button x:Name="btnClose" Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                            <Button.Content>
+                                                <materialDesign:PackIcon
+                                                    Width="25"
+                                                    Height="25"
+                                                    VerticalAlignment="Center"
+                                                    Kind="WindowClose" />
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </DockPanel>
 
                                 <DockPanel Grid.Row="1">
                                     <StackPanel
@@ -174,21 +181,27 @@
                                     </StackPanel>
 
                                     <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-
                                         <materialDesign:PopupBox
                                             x:Name="userPopup"
                                             DockPanel.Dock="Right"
                                             IsPopupOpen="False">
                                             <materialDesign:PopupBox.ToggleContent>
-                                                <Border
-                                                    Width="50"
-                                                    Height="50"
-                                                    Margin="0,0,20,0"
-                                                    CornerRadius="25">
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="/Assets/Images/title.jpg" />
-                                                    </Border.Background>
-                                                </Border>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Border
+                                                        Width="50"
+                                                        Height="50"
+                                                        Margin="0,0,20,0"
+                                                        CornerRadius="25">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="/Assets/Images/title.jpg" />
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock
+                                                        Margin="0,0,20,0"
+                                                        VerticalAlignment="Center"
+                                                        Foreground="AliceBlue"
+                                                        Text="{Binding User.Account}" />
+                                                </StackPanel>
                                             </materialDesign:PopupBox.ToggleContent>
 
                                             <StackPanel>
@@ -210,39 +223,20 @@
                                         </materialDesign:PopupBox>
                                     </StackPanel>
 
-                                    <materialDesign:ColorZone
-                                        Margin="16,0,0,0"
-                                        Padding="8,4,8,4"
+                                    <Border
+                                        x:Name="bd"
+                                        Grid.Column="2"
+                                        Height="34"
+                                        Padding="5"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Panel.ZIndex="1"
-                                        CornerRadius="2"
-                                        Mode="Standard">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="Auto" />
-                                            </Grid.ColumnDefinitions>
-                                            <Button Style="{StaticResource MaterialDesignToolButton}">
-                                                <materialDesign:PackIcon Kind="Search" Opacity=".56" />
-                                            </Button>
-                                            <TextBox
-                                                Grid.Column="1"
-                                                MinWidth="200"
-                                                Margin="8,0,0,0"
-                                                VerticalAlignment="Center"
-                                                materialDesign:HintAssist.Hint="Build a search bar"
-                                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                                BorderThickness="0" />
-                                            <Button Grid.Column="2" Style="{StaticResource MaterialDesignToolButton}">
-                                                <materialDesign:PackIcon
-                                                    Margin="8,0,0,0"
-                                                    Kind="Microphone"
-                                                    Opacity=".56" />
-                                            </Button>
-                                        </Grid>
-                                    </materialDesign:ColorZone>
+                                        BorderBrush="Transparent"
+                                        BorderThickness="1"
+                                        ClipToBounds="True"
+                                        Loaded="bd_Loaded">
+                                        <custom:TextHighLightView x:Name="tb" />
+                                    </Border>
+
                                 </DockPanel>
                             </Grid>
 
@@ -273,7 +267,7 @@
                                         Orientation="Horizontal">
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=home_page, Path=Text}" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                         <materialDesign:PackIcon
@@ -282,7 +276,7 @@
                                             VerticalAlignment="Center"
                                             Kind="ViewDashboard" />
                                         <TextBlock
-                                            x:Name="title"
+                                            x:Name="home_page"
                                             Margin="20,0,0,0"
                                             VerticalAlignment="Center"
                                             DockPanel.Dock="Right"
@@ -302,6 +296,7 @@
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="设备管理" />
                                     </StackPanel>
@@ -317,6 +312,7 @@
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="策略模式" />
                                     </StackPanel>
@@ -332,6 +328,7 @@
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="数据统计" />
                                     </StackPanel>
@@ -347,354 +344,44 @@
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
+                                            FontSize="16"
                                             Foreground="White"
                                             Text="个人中心" />
                                     </StackPanel>
                                 </ListViewItem>
+
                                 <ListViewItem Height="60">
                                     <StackPanel
                                         Height="60"
-                                        Margin="12,0,0,0"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=setting, Path=Text}" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                         <materialDesign:PackIcon
-                                            Width="30"
-                                            Height="30"
+                                            Width="25"
+                                            Height="25"
+                                            Margin="10"
                                             VerticalAlignment="Center"
-                                            Kind="ViewDashboard" />
+                                            Kind="CogOutline" />
                                         <TextBlock
-                                            Margin="20,0,0,0"
+                                            x:Name="setting"
+                                            Margin="20,10"
                                             VerticalAlignment="Center"
-                                            DockPanel.Dock="Right"
                                             FontSize="16"
                                             Foreground="White"
-                                            Text="首页" />
+                                            Text="设置" />
                                     </StackPanel>
                                 </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Pencil" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="设备管理" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Ticket" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="策略模式" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Message" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="数据统计" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Account" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="个人中心" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel
-                                        Height="60"
-                                        Margin="12,0,0,0"
-                                        VerticalAlignment="Center"
-                                        Orientation="Horizontal">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                        <materialDesign:PackIcon
-                                            Width="30"
-                                            Height="30"
-                                            VerticalAlignment="Center"
-                                            Kind="ViewDashboard" />
-                                        <TextBlock
-                                            Margin="20,0,0,0"
-                                            VerticalAlignment="Center"
-                                            DockPanel.Dock="Right"
-                                            FontSize="16"
-                                            Foreground="White"
-                                            Text="首页" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Pencil" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="设备管理" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Ticket" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="策略模式" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Message" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="数据统计" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Account" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="个人中心" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel
-                                        Height="60"
-                                        Margin="12,0,0,0"
-                                        VerticalAlignment="Center"
-                                        Orientation="Horizontal">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                        <materialDesign:PackIcon
-                                            Width="30"
-                                            Height="30"
-                                            VerticalAlignment="Center"
-                                            Kind="ViewDashboard" />
-                                        <TextBlock
-                                            Margin="20,0,0,0"
-                                            VerticalAlignment="Center"
-                                            DockPanel.Dock="Right"
-                                            FontSize="16"
-                                            Foreground="White"
-                                            Text="首页" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Pencil" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="设备管理" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Ticket" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="策略模式" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Message" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="数据统计" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Account" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="个人中心" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel
-                                        Height="60"
-                                        Margin="12,0,0,0"
-                                        VerticalAlignment="Center"
-                                        Orientation="Horizontal">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=title, Path=Text}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                        <materialDesign:PackIcon
-                                            Width="30"
-                                            Height="30"
-                                            VerticalAlignment="Center"
-                                            Kind="ViewDashboard" />
-                                        <TextBlock
-                                            Margin="20,0,0,0"
-                                            VerticalAlignment="Center"
-                                            DockPanel.Dock="Right"
-                                            FontSize="16"
-                                            Foreground="White"
-                                            Text="首页" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Pencil" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="设备管理" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Ticket" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="策略模式" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Message" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="数据统计" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
-                                            VerticalAlignment="Center"
-                                            Kind="Account" />
-                                        <TextBlock
-                                            Margin="20,10"
-                                            VerticalAlignment="Center"
-                                            Foreground="White"
-                                            Text="个人中心" />
-                                    </StackPanel>
-                                </ListViewItem>
+
                             </ListView>
                         </Grid>
 
-                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+                        </ScrollViewer>
                     </DockPanel>
                 </materialDesign:ColorZone>
             </StackPanel>

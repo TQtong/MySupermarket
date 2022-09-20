@@ -12,6 +12,11 @@ namespace MySupermarket.Core.Mvvm
             RegionManager = regionManager;
         }
 
+        /// <summary>
+        /// 切换导航栏时，判断是否可以切换：true 可以.
+        /// </summary>
+        /// <param name="navigationContext"></param>
+        /// <param name="continuationCallback"></param>
         public virtual void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             continuationCallback(true);

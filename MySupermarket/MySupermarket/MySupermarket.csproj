@@ -5,8 +5,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\Images\1.jpg" />
+    <None Remove="Assets\Images\2.jpg" />
+    <None Remove="Assets\Images\3.jpg" />
     <None Remove="Assets\Images\login.png" />
     <None Remove="Assets\Images\title.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.400" />
@@ -28,6 +36,12 @@
     <Folder Include="Assets\Styles\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Images\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Images\login.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

@@ -1,12 +1,15 @@
 ﻿using MaterialDesignThemes.Wpf;
 using MySupermarket.Common.Extensions;
+using MySupermarket.CustomUserControl.Extensions;
 using MySupermarket.CustomUserControl.Views;
 using MySupermarket.Services.Interfaces;
 using Prism.Events;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
 namespace MySupermarket.Views
@@ -124,6 +127,29 @@ namespace MySupermarket.Views
                     LeftOpenMenuToggleButton.Visibility = Visibility.Visible;
                 }
             };
+        }
+
+        /// <summary>
+        /// 文字滚动
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bd_Loaded(object sender, RoutedEventArgs e)
+        {
+            ThicknessAnimation thicknessAnimation = new ThicknessAnimation();
+
+            thicknessAnimation.From = new Thickness(0, 0, 0, 0);
+            thicknessAnimation.By = new Thickness(-150, 0, 0, 0);
+            thicknessAnimation.Duration = new Duration(TimeSpan.FromSeconds(5))
+            {
+
+            };
+            thicknessAnimation.BeginTime = TimeSpan.FromSeconds(3);
+            thicknessAnimation.Completed += (object? sender, EventArgs e) =>
+            {
+                tb.BeginAnimation(CustomUserControl.Views.TextHighLightView.MarginProperty, thicknessAnimation);
+            };
+            tb.BeginAnimation(CustomUserControl.Views.TextHighLightView.MarginProperty, thicknessAnimation);
         }
 
     }

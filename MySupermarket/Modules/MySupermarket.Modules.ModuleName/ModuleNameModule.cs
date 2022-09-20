@@ -1,6 +1,8 @@
 ﻿using MySupermarket.Core;
 using MySupermarket.Modules.ModuleName.ViewModels;
+using MySupermarket.Modules.ModuleName.ViewModels.Settings;
 using MySupermarket.Modules.ModuleName.Views;
+using MySupermarket.Modules.ModuleName.Views.Settings;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -18,13 +20,17 @@ namespace MySupermarket.Modules.ModuleName
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewA");
+            // 默认显示首页
+            _regionManager.RequestNavigate(RegionNames.ContentRegion, "IndexView");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //注册导航条
             containerRegistry.RegisterForNavigation<ViewA, ViewAViewModel>();
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsView, SettingsViewModel>();
+
             //注册登录窗口
             containerRegistry.RegisterDialog<LoginView, LoginViewModel>();
 

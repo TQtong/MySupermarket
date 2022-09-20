@@ -64,13 +64,6 @@ namespace MySupermarket
                     return;
                 }
 
-                var service = App.Current.MainWindow.DataContext as IConfigureService;
-
-                if (service != null)
-                {
-                    service.Configure();
-                }
-
                 base.OnInitialized();
             });
 

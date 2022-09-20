@@ -13,5 +13,7 @@ namespace MySupermarket.Common.Enums
         IndexView,
         [Description("登录")]
         LoginView,
+        [Description("设置")]
+        SettingsView,
     }
 }

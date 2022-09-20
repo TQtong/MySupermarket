@@ -17,19 +17,6 @@ namespace MySupermarket.Modules.ModuleName.ViewModels
         }
 
         /// <summary>
-        /// 切换导航栏时，判断是否可以切换：true 可以.
-        /// </summary>
-        /// <param name="navigationContext"></param>
-        /// <param name="continuationCallback"></param>
-        public override void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
-        {
-            //if (MessageBox.Show("确认切换？", "提示", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            //{
-            //    continuationCallback(true);
-            //}
-        }
-
-        /// <summary>
         /// 每次重新导航的时候，是否重用之前的实例：true 重用.
         /// </summary>
         /// <param name="navigationContext"></param>
