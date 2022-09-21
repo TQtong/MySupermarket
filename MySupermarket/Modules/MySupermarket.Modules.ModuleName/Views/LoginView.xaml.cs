@@ -26,6 +26,9 @@ namespace MySupermarket.Modules.ModuleName.Views
         public LoginView(IEventAggregator aggregator)
         {
             InitializeComponent();
+
+            BorderLine.Start();
+
             //注册提示消息（跟mainwindow类似）
             aggregator.ResgiterHintMessage(arg =>
             {
