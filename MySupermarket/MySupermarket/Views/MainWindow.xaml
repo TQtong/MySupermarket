@@ -102,7 +102,12 @@
                 </DockPanel>
             </materialDesign:DrawerHost.RightDrawerContent>
 
-            <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
                 <Grid>
                     <!--  提示消息  -->
                     <materialDesign:Snackbar
@@ -247,22 +252,17 @@
                     <!--  头部区域  -->
                 </Grid>
 
-                <materialDesign:ColorZone>
-                    <DockPanel>
-
-                        <Grid
+                <materialDesign:ColorZone Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel
                             x:Name="navigation"
                             Width="60"
-                            HorizontalAlignment="Left"
-                            Background="SkyBlue">
-                            <ListView
-                                Foreground="#FF1368BD"
-                                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                                ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                                <ListViewItem x:Name="index" Height="60">
+                            HorizontalAlignment="Left">
+                            <Border BorderBrush="#DDDDDD" BorderThickness="0,0,0,0.3" />
+                            <ListBox ItemContainerStyle="{StaticResource CustomListBoxItemStyle}">
+                                <ListBoxItem x:Name="index" Height="60">
                                     <StackPanel
-                                        Height="60"
-                                        Margin="12,0,0,0"
+                                        Margin="20,0,0,0"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
                                         <i:Interaction.Triggers>
@@ -281,78 +281,80 @@
                                             VerticalAlignment="Center"
                                             DockPanel.Dock="Right"
                                             FontSize="16"
-                                            Foreground="White"
                                             Text="首页" />
                                     </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
+                                </ListBoxItem>
+                                <ListBoxItem Height="60">
+                                    <StackPanel
+                                        Margin="20,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="Pencil" />
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
                                             FontSize="16"
-                                            Foreground="White"
                                             Text="设备管理" />
                                     </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
+                                </ListBoxItem>
+                                <ListBoxItem Height="60">
+                                    <StackPanel
+                                        Margin="20,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="Ticket" />
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
                                             FontSize="16"
-                                            Foreground="White"
                                             Text="策略模式" />
                                     </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
+                                </ListBoxItem>
+                                <ListBoxItem Height="60">
+                                    <StackPanel
+                                        Margin="20,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="Message" />
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
                                             FontSize="16"
-                                            Foreground="White"
                                             Text="数据统计" />
                                     </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Height="60">
-                                    <StackPanel Orientation="Horizontal">
+                                </ListBoxItem>
+                                <ListBoxItem Height="60">
+                                    <StackPanel
+                                        Margin="20,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="Account" />
                                         <TextBlock
                                             Margin="20,10"
                                             VerticalAlignment="Center"
                                             FontSize="16"
-                                            Foreground="White"
                                             Text="个人中心" />
                                     </StackPanel>
-                                </ListViewItem>
-
-                                <ListViewItem Height="60">
+                                </ListBoxItem>
+                                <ListBoxItem Height="60">
                                     <StackPanel
-                                        Height="60"
+                                        Margin="20,0,0,0"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
                                         <i:Interaction.Triggers>
@@ -361,9 +363,8 @@
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                         <materialDesign:PackIcon
-                                            Width="25"
-                                            Height="25"
-                                            Margin="10"
+                                            Width="30"
+                                            Height="30"
                                             VerticalAlignment="Center"
                                             Kind="CogOutline" />
                                         <TextBlock
@@ -371,21 +372,17 @@
                                             Margin="20,10"
                                             VerticalAlignment="Center"
                                             FontSize="16"
-                                            Foreground="White"
-                                            Text="设置" />
+                                            Text="设置中心" />
                                     </StackPanel>
-                                </ListViewItem>
+                                </ListBoxItem>
+                            </ListBox>
+                        </StackPanel>
 
-                            </ListView>
-                        </Grid>
-
-                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
-                        </ScrollViewer>
-                    </DockPanel>
+                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+                    </StackPanel>
                 </materialDesign:ColorZone>
-            </StackPanel>
 
+            </Grid>
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>
 </Window>

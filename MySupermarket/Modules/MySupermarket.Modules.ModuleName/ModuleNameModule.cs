@@ -31,6 +31,11 @@ namespace MySupermarket.Modules.ModuleName
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             containerRegistry.RegisterForNavigation<SettingsView, SettingsViewModel>();
 
+            //设置中的侧边导航栏
+            containerRegistry.RegisterForNavigation<IndividuationView, IndividuationViewModel>();
+            containerRegistry.RegisterForNavigation<SystemSettingsView, SystemSettingsViewModel>();
+            containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();
+
             //注册登录窗口
             containerRegistry.RegisterDialog<LoginView, LoginViewModel>();
 

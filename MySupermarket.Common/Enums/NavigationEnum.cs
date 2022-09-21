@@ -13,7 +13,13 @@ namespace MySupermarket.Common.Enums
         IndexView,
         [Description("登录")]
         LoginView,
-        [Description("设置")]
+        [Description("设置中心")]
         SettingsView,
+        [Description("个性化")]
+        IndividuationView,
+        [Description("系统设置")]
+        SystemSettingsView,
+        [Description("关于")]
+        AboutView,
     }
 }

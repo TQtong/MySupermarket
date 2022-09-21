@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:core="clr-namespace:MySupermarket.Core;assembly=MySupermarket.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:MySupermarket.Modules.ModuleName.Views.Settings"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -43,6 +44,52 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>-->
+
+            <ListBox x:Name="menuBar" ItemContainerStyle="{StaticResource CustomListBoxItemStyle}">
+                <ListBoxItem>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=individuation, Path=Text}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15,0" Kind="Palette" />
+                        <TextBlock
+                            x:Name="individuation"
+                            Margin="10,0"
+                            Text="个性化" />
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=system, Path=Text}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15,0" Kind="Cog" />
+                        <TextBlock
+                            x:Name="system"
+                            Margin="10,0"
+                            Text="系统设置" />
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=about, Path=Text}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15,0" Kind="Information" />
+                        <TextBlock
+                            x:Name="about"
+                            Margin="10,0"
+                            Text="关于" />
+                    </StackPanel>
+                </ListBoxItem>
+            </ListBox>
+
 
             <ContentControl
                 Grid.Column="1"

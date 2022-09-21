@@ -75,7 +75,7 @@ namespace MySupermarket.ViewModels
         #region 命令
 
         /// <summary>
-        /// 导航
+        /// 导航切换
         /// </summary>
         public DelegateCommand<string> ChangeNavgationCommand { get; private set; }
 
