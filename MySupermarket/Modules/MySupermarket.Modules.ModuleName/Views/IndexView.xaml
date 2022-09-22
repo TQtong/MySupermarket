@@ -12,7 +12,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ScrollViewer>
+    <ScrollViewer >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -47,7 +47,9 @@
                 </Border>
             </Border>
 
-            <custom:CarouselView Grid.Row="1" />
+            <DockPanel Grid.Row="1">
+                <custom:WPFDevelopersCarouselView />
+            </DockPanel>
 
             <DockPanel Grid.Row="2" LastChildFill="False">
 

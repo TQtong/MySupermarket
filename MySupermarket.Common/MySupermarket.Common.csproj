@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MySupermarket\MySupermarket.Core\MySupermarket.Core.csproj" />
     <ProjectReference Include="..\MySupermarket\Services\MySupermarket.Services.Interfaces\MySupermarket.Services.Interfaces.csproj" />
   </ItemGroup>
 

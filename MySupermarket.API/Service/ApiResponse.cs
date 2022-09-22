@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Service
+﻿namespace MySupermarket.API.Context
 {
     public class ApiResponse
     {

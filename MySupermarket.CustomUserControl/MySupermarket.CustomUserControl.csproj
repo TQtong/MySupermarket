@@ -9,6 +9,8 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.400" />
+    <PackageReference Include="Panuon.WPF" Version="1.0.0" />
+    <PackageReference Include="Panuon.WPF.UI" Version="1.1.5" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="WPFDevelopers" Version="1.0.4" />

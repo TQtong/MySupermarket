@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Arch.EntityFrameworkCore.UnitOfWork.Collections
+namespace MySupermarket.API.UnitOfWork
 {
     /// <summary>
     /// Represents the default implementation of the <see cref="IPagedList{T}"/> interface.

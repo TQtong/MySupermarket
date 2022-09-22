@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Context
+namespace MySupermarket.API.Context
 {
     public class BaseEntity
     {

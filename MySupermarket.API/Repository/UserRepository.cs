@@ -1,8 +1,8 @@
 ﻿using Arch.EntityFrameworkCore.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Context;
+using MySupermarket.API.UnitOfWork;
 
-namespace WebApplication1.Repository
+namespace MySupermarket.API.Context
 {
     public class UserRepository : Repository<User>, IRepository<User>
     {

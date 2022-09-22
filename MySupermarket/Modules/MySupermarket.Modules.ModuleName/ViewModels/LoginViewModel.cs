@@ -1,5 +1,5 @@
 ﻿using MySupermarket.Common.Extensions;
-using MySupermarket.Common.Models;
+using MySupermarket.Core.Dto;
 using MySupermarket.Modules.ModuleName.Event;
 using MySupermarket.Modules.ModuleName.Service;
 using Prism.Commands;
@@ -144,7 +144,6 @@ namespace MySupermarket.Modules.ModuleName.ViewModels
                 if (result.Status)
                 {
                     RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
-                    //aggregator.SendHintMessage("登录成功", "Login");
                     aggregator.GetEvent<UserNameEvent>().Publish(result.Result);
                 }
                 else

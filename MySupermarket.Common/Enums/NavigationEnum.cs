@@ -15,6 +15,8 @@ namespace MySupermarket.Common.Enums
         IndexView,
         [Description("乐    库")]
         MusicLibraryView,
+        [Description("音乐大厅")]
+        MusicHallView,
         [Description("设置中心")]
         SettingsView,
         [Description("个性化")]

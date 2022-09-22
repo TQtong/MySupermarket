@@ -1,7 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
-using WebApplication1.Context;
 
-namespace WebApplication1
+namespace MySupermarket.API
 {
     public static class RegisterServiceExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using MySupermarket.Common.Models;
-using WebApplication1.Context;
+using MySupermarket.API.Context;
+using MySupermarket.Core.Dto;
 
 namespace MySupermarket.API.Extensions
 {
@@ -9,6 +9,7 @@ namespace MySupermarket.API.Extensions
         public AutoMapperProFile()
         {
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<MusicInfo, MusicInfoDto>().ReverseMap();
         }
     }
 }

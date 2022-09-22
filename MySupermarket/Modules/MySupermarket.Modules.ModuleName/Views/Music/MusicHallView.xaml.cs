@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MySupermarket.CustomUserControl.Views
+namespace MySupermarket.Modules.ModuleName.Views.Music
 {
     /// <summary>
-    /// CarouselView.xaml 的交互逻辑
+    /// MusicHallView.xaml 的交互逻辑
     /// </summary>
-    public partial class CarouselView : UserControl
+    public partial class MusicHallView : UserControl
     {
-        public CarouselView()
+        public MusicHallView()
         {
             InitializeComponent();
         }

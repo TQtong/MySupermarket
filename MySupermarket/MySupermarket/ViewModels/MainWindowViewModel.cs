@@ -1,8 +1,8 @@
 ﻿using ImTools;
 using MySupermarket.Common.Enums;
 using MySupermarket.Common.Extensions;
-using MySupermarket.Common.Models;
 using MySupermarket.Core;
+using MySupermarket.Core.Dto;
 using MySupermarket.Modules.ModuleName.Event;
 using MySupermarket.Services.Interfaces;
 using Prism.Commands;

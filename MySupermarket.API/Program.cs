@@ -1,12 +1,10 @@
-using Arch.EntityFrameworkCore.UnitOfWork;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using MySupermarket.API;
+using MySupermarket.API.Context;
 using MySupermarket.API.Extensions;
+using MySupermarket.API.UnitOfWork;
 using System.Reflection;
-using WebApplication1;
-using WebApplication1.Context;
-using WebApplication1.Repository;
-using WebApplication1.Service;
 
 var builder = WebApplication.CreateBuilder(args).RegisterServices();
 

@@ -1,4 +1,4 @@
-﻿namespace WebApplication1
+﻿namespace MySupermarket.API
 {
     public static class RegisterMiddlewareExtensions
     {

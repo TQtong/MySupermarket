@@ -1,5 +1,5 @@
 ﻿using MySupermarket.Common.Extensions;
-using MySupermarket.Common.Models;
+using MySupermarket.Core.Domain;
 using Prism.Events;
 using Prism.Ioc;
 using Prism.Mvvm;

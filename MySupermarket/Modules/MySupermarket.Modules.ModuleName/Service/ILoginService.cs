@@ -1,5 +1,5 @@
 ﻿using MySupermarket.Common.Configurations;
-using MySupermarket.Common.Models;
+using MySupermarket.Core.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

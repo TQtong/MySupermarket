@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Arch.EntityFrameworkCore.UnitOfWork.Collections
+namespace MySupermarket.API.UnitOfWork
 {
     public static class IQueryablePageListExtensions
     {

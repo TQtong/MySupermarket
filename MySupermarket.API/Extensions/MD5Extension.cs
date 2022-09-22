@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
 
-namespace WebApplication1.Extensions
+namespace MySupermarket.API.Context
 {
     public static class MD5Extension
     {

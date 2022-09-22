@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupermarket.CustomUserControl.ViewModels
 {
-    internal class CarouselViewModel
+    internal class WPFDevelopersCarouselViewModel
     {
     }
 }

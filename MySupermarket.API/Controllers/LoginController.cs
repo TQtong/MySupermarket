@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MySupermarket.Common.Models;
-using WebApplication1.Context;
-using WebApplication1.Service;
+using MySupermarket.Core.Dto;
 
-namespace WebApplication1.Controllers
+namespace MySupermarket.API.Context
 {
     /// <summary>
     /// 账户控制器

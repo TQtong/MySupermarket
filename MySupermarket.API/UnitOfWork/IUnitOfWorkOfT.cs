@@ -3,7 +3,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Arch.EntityFrameworkCore.UnitOfWork
+namespace MySupermarket.API.UnitOfWork
 {
     /// <summary>
     /// Defines the interface(s) for generic unit of work.

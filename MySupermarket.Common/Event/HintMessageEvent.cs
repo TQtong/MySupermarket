@@ -1,4 +1,4 @@
-﻿using MySupermarket.Common.Models;
+﻿using MySupermarket.Core.Domain;
 using Prism.Events;
 using System;
 using System.Collections.Generic;

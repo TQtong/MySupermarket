@@ -1,5 +1,5 @@
 ﻿using MySupermarket.Common.Event;
-using MySupermarket.Common.Models;
+using MySupermarket.Core.Domain;
 using MySupermarket.Services.Interfaces;
 using Prism.Events;
 using Prism.Services.Dialogs;

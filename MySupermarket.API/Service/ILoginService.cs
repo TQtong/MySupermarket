@@ -1,7 +1,6 @@
-﻿using MySupermarket.Common.Models;
-using WebApplication1.Context;
+﻿using MySupermarket.Core.Dto;
 
-namespace WebApplication1.Service
+namespace MySupermarket.API.Context
 {
     public interface ILoginService
     {

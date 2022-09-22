@@ -1,12 +1,14 @@
-﻿using System;
+﻿using MySupermarket.Core.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySupermarket.Common.Models
+namespace MySupermarket.Core.Dto
 {
-    public class UserDto : BaseObject
+    public class UserDto : UserBaseObject
     {
         private string account;
         /// <summary>
@@ -18,7 +20,7 @@ namespace MySupermarket.Common.Models
             set
             {
                 account = value;
-                OnPropertyChanged();
+                SetProperty(ref account, value);
             }
         }
 
@@ -32,7 +34,7 @@ namespace MySupermarket.Common.Models
             set
             {
                 name = value;
-                OnPropertyChanged();
+                SetProperty(ref name, value);
             }
         }
 
@@ -46,7 +48,7 @@ namespace MySupermarket.Common.Models
             set
             {
                 password = value;
-                OnPropertyChanged();
+                SetProperty(ref password, value);
             }
         }
     }

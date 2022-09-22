@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using Arch.EntityFrameworkCore.UnitOfWork.Collections;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Arch.EntityFrameworkCore.UnitOfWork
+namespace MySupermarket.API.UnitOfWork
 {
     /// <summary>
     /// Represents a default generic repository implements the <see cref="IRepository{TEntity}"/> interface.

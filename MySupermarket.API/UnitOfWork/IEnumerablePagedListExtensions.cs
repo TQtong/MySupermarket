@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Arch.EntityFrameworkCore.UnitOfWork.Collections
+namespace MySupermarket.API.UnitOfWork
 {
     /// <summary>
     /// Provides some extension methods for <see cref="IEnumerable{T}"/> to provide paging capability.

@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace Arch.EntityFrameworkCore.UnitOfWork.Collections
+namespace MySupermarket.API.UnitOfWork
 {
     /// <summary>
     /// Provides the interface(s) for paged list of any type.

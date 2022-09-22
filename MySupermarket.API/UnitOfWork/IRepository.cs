@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace Arch.EntityFrameworkCore.UnitOfWork
+namespace MySupermarket.API.UnitOfWork
 {
     using System;
     using System.Collections.Generic;

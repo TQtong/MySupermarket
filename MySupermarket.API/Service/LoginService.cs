@@ -1,10 +1,9 @@
 ﻿using Arch.EntityFrameworkCore.UnitOfWork;
 using AutoMapper;
-using MySupermarket.Common.Models;
-using WebApplication1.Context;
-using WebApplication1.Extensions;
+using MySupermarket.API.UnitOfWork;
+using MySupermarket.Core.Dto;
 
-namespace WebApplication1.Service
+namespace MySupermarket.API.Context
 {
     public class LoginService : ILoginService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySupermarket.Common.Models
+namespace MySupermarket.Core.Domain
 {
     public class MessageModel
     {

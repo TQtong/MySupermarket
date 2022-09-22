@@ -112,6 +112,7 @@
                 <Grid>
                     
                     
+                    
                     <!--  提示消息  -->
                     <materialDesign:Snackbar
                         x:Name="snackBar"
@@ -120,8 +121,10 @@
                         MessageQueue="{materialDesign:MessageQueue}" />
                     
                     
+                    
                     <!--  提示消息  -->
 
+                    
                     
                     
                     <!--  头部区域  -->
@@ -258,13 +261,19 @@
                     </materialDesign:ColorZone>
                     
                     
+                    
                     <!--  头部区域  -->
                 </Grid>
 
                 <materialDesign:ColorZone Grid.Row="1">
-                    <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
                         <StackPanel
                             x:Name="navigation"
+                            Grid.Column="0"
                             Width="60"
                             HorizontalAlignment="Left">
                             <Border BorderBrush="#DDDDDD" BorderThickness="0,0,0,0.3" />
@@ -393,8 +402,8 @@
                             </ListBox>
                         </StackPanel>
 
-                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegionName}" />
-                    </StackPanel>
+                        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegionName}" />
+                    </Grid>
                 </materialDesign:ColorZone>
 
             </Grid>

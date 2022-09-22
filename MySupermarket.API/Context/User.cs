@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Context
+namespace MySupermarket.API.Context
 {
     /// <summary>
     /// 用户表

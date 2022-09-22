@@ -40,11 +40,13 @@ namespace MySupermarket.Modules.ModuleName
             containerRegistry.RegisterForNavigation<MusicLibraryView, MusicLibraryViewModel>();
             containerRegistry.RegisterForNavigation<SettingsView, SettingsViewModel>();
 
-            //设置中的侧边导航栏
+            //注册设置中的侧边导航栏
             containerRegistry.RegisterForNavigation<IndividuationView, IndividuationViewModel>();
             containerRegistry.RegisterForNavigation<SystemSettingsView, SystemSettingsViewModel>();
             containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();
 
+            //注册乐库中的内容
+            containerRegistry.RegisterForNavigation<MusicHallView, MusicHallViewModel>();
 
         }
     }
