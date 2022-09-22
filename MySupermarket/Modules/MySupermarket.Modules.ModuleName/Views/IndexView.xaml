@@ -20,7 +20,7 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Border Padding="0,5" Background="Red">
+            <Border Padding="0,5">
                 <Border
                     Width="280"
                     Background="Wheat"

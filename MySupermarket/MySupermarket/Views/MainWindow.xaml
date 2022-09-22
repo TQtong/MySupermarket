@@ -12,6 +12,7 @@
     xmlns:prism="http://prismlibrary.com/"
     Width="1200"
     Height="800"
+    xml:space="preserve"
     AllowsTransparency="True"
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="微软雅黑"
@@ -104,19 +105,25 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
 
                 <Grid>
+                    
+                    
                     <!--  提示消息  -->
                     <materialDesign:Snackbar
                         x:Name="snackBar"
                         Grid.Row="0"
                         Panel.ZIndex="1"
                         MessageQueue="{materialDesign:MessageQueue}" />
+                    
+                    
                     <!--  提示消息  -->
 
+                    
+                    
                     <!--  头部区域  -->
                     <materialDesign:ColorZone
                         x:Name="colorZone"
@@ -249,6 +256,8 @@
 
                         </DockPanel>
                     </materialDesign:ColorZone>
+                    
+                    
                     <!--  头部区域  -->
                 </Grid>
 
@@ -281,7 +290,7 @@
                                             VerticalAlignment="Center"
                                             DockPanel.Dock="Right"
                                             FontSize="16"
-                                            Text="首页" />
+                                            Text="首&#x0020;&#x0020;&#x0020;&#x0020;页" />
                                     </StackPanel>
                                 </ListBoxItem>
                                 <ListBoxItem Height="60">
@@ -289,16 +298,22 @@
                                         Margin="20,0,0,0"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
+                                                                                <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:InvokeCommandAction Command="{Binding ChangeNavgationCommand}" CommandParameter="{Binding ElementName=musicLibrary, Path=Text}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                         <materialDesign:PackIcon
                                             Width="30"
                                             Height="30"
                                             VerticalAlignment="Center"
-                                            Kind="Pencil" />
+                                            Kind="Music" />
                                         <TextBlock
+                                            x:Name="musicLibrary"
                                             Margin="20,10"
                                             VerticalAlignment="Center"
                                             FontSize="16"
-                                            Text="设备管理" />
+                                            Text="乐&#x0020;&#x0020;&#x0020;&#x0020;库" />
                                     </StackPanel>
                                 </ListBoxItem>
                                 <ListBoxItem Height="60">
@@ -378,7 +393,7 @@
                             </ListBox>
                         </StackPanel>
 
-                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegionName}" />
                     </StackPanel>
                 </materialDesign:ColorZone>
 

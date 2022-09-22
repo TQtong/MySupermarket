@@ -119,7 +119,7 @@ namespace MySupermarket.ViewModels
                 }
             }
 
-            regionManager.Regions[RegionNames.ContentRegion].RequestNavigate(navigation.ToString(), callback =>
+            regionManager.Regions[RegionNames.ContentRegionName].RequestNavigate(navigation.ToString(), callback =>
             {
                 if ((bool)callback.Result)
                 {

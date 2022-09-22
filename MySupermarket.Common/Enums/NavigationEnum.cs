@@ -9,10 +9,12 @@ namespace MySupermarket.Common.Enums
 {
     public enum NavigationEnum
     {
-        [Description("首页")]
-        IndexView,
         [Description("登录")]
         LoginView,
+        [Description("首    页")]
+        IndexView,
+        [Description("乐    库")]
+        MusicLibraryView,
         [Description("设置中心")]
         SettingsView,
         [Description("个性化")]
@@ -21,5 +23,6 @@ namespace MySupermarket.Common.Enums
         SystemSettingsView,
         [Description("关于")]
         AboutView,
+
     }
 }
