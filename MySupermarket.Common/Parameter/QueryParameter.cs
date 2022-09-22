@@ -14,12 +14,12 @@ namespace MySupermarket.Common.Parameter
         /// <summary>
         /// 查询的页数
         /// </summary>
-        public int PageIndex { get; set; }
+        public int PageIndex { get; set; } = 0;
 
         /// <summary>
         /// 查询的数量
         /// </summary>
-        public int PageSize { get; set; }
+        public int PageSize { get; set; } = 1;
 
         /// <summary>
         /// 查询的条件（id、title等）

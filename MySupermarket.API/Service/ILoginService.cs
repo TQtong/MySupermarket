@@ -7,8 +7,7 @@ namespace MySupermarket.API.Context
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="Account"></param>
-        /// <param name="Password"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
         Task<ApiResponse> LoginAsync(UserDto user);
 

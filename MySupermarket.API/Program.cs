@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using MySupermarket.API;
 using MySupermarket.API.Context;
 using MySupermarket.API.Extensions;
+using MySupermarket.API.Repository;
+using MySupermarket.API.Service.Music;
 using MySupermarket.API.UnitOfWork;
 using System.Reflection;
 
@@ -22,8 +24,14 @@ builder.Services.AddDbContext<MyDbContext>(option =>
 });
 
 builder.Services.AddUnitOfWork<MyDbContext>();
+
+//注册仓储
 builder.Services.AddCustomRepository<User, UserRepository>();
+builder.Services.AddCustomRepository<MusicInfo, MusicInfoRepository>();
+
+//注册自定义服务
 builder.Services.AddTransient<ILoginService, LoginService>();
+builder.Services.AddTransient<IMusicInfoService, MusicInfoService>();
 
 //添加映射关系（automapper）
 var autoMapperConfig = new MapperConfiguration(configure =>
