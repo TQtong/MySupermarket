@@ -19,7 +19,7 @@ namespace MySupermarket.API.Migrations
                     singername = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     songalbum = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     songtime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    singpath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    songpath = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     createdDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

@@ -24,6 +24,10 @@ namespace MySupermarket.API.Controllers
         public async Task<ApiResponse> GetAll([FromQuery] QueryParameter param) =>
             await service.GetAllAsync(param);
 
+        [HttpGet]
+        public async Task<ApiResponse> GetSingle(string name) =>
+            await service.GetFirstOfDefaultAsync(name);
+
         [HttpPost]
         public async Task<ApiResponse> Add([FromBody] MusicInfoDto param) =>
             await service.AddAsync(param);

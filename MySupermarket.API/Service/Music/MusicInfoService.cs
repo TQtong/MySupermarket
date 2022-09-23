@@ -48,6 +48,29 @@ namespace MySupermarket.API.Service.Music
             }
         }
 
+        public async Task<ApiResponse> GetFirstOfDefaultAsync(string name)
+        {
+            try
+            {
+                var repository = work.GetRepository<MusicInfo>();
+                var music = await repository.GetFirstOrDefaultAsync(predicate:
+                    x => string.IsNullOrWhiteSpace(name) ? false : x.SongName.Equals(name));
+
+                if (music == null)
+                {
+                    return new ApiResponse("播放歌曲失败,请稍后重试！");
+                }
+
+                var result = mapper.Map<MusicInfoDto>(music);
+
+                return new ApiResponse(true, result);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(ex.Message);
+            }
+        }
+
         public async Task<ApiResponse> GetAllAsync(QueryParameter parameter)
         {
             try

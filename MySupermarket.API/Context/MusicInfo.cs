@@ -20,7 +20,7 @@ namespace MySupermarket.API.Context
         [Column("songtime")]
         public string SongTime { get; set; }
 
-        [Column("singpath")]
-        public string SingPath { get; set; }
+        [Column("songpath")]
+        public string SongPath { get; set; }
     }
 }

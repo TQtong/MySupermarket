@@ -9,5 +9,7 @@ namespace MySupermarket.API.Service.Music
         Task<ApiResponse> GetAllAsync(QueryParameter parameter);
 
         Task<ApiResponse> AddAsync(MusicInfoDto dto);
+
+        Task<ApiResponse> GetFirstOfDefaultAsync(string name);
     }
 }

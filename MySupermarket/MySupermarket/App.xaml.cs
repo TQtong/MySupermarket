@@ -1,9 +1,10 @@
 ﻿using DryIoc;
-using MySupermarket.Common.Managers.Music;
 using MySupermarket.CustomUserControl;
 using MySupermarket.Modules.ModuleName;
 using MySupermarket.Modules.ModuleName.Common;
+using MySupermarket.Modules.ModuleName.Managers.Music;
 using MySupermarket.Modules.ModuleName.Service;
+using MySupermarket.Modules.ModuleName.Service.Music;
 using MySupermarket.Services;
 using MySupermarket.Services.Interfaces;
 using MySupermarket.Services.Interfaces.ViewModelInterfaces.Music;
@@ -34,14 +35,15 @@ namespace MySupermarket
             //设置根路径
             containerRegistry.GetContainer().RegisterInstance(@"http://localhost:5211/", serviceKey: "webUrl");
 
-            //注册客户端服务
+            //注册客户端服务(调用API)
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
             containerRegistry.Register<ILoginService, LoginService>();
+            containerRegistry.Register<IMusicInfoService, MusicInfoService>();
 
             //注册自定义弹窗服务
             containerRegistry.Register<IDialogHostService, DialogHostService>();
 
-            //注册自定义viewmodel服务
+            //注册自定义viewmodel服务(不调用API)
             containerRegistry.Register<IMusicHallService, MusicHallManager>();
 
         }

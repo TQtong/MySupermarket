@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MySupermarket.Core.Dto
 {
+    [Serializable]
     public class MusicInfoDto : ViewModelBase
     {
         private string songName;
@@ -65,17 +66,17 @@ namespace MySupermarket.Core.Dto
             }
         }
 
-        private string singPath;
+        private string songPath;
         /// <summary>
         /// 歌曲路径
         /// </summary>
-        public string SingPath
+        public string SongPath
         {
-            get => singPath;
+            get => songPath;
             set
             {
-                singPath = value;
-                SetProperty(ref singPath, value);
+                songPath = value;
+                SetProperty(ref songPath, value);
             }
         }
 

@@ -35,11 +35,6 @@ namespace MySupermarket.API.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("createdDate");
 
-                    b.Property<string>("SingPath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("singpath");
-
                     b.Property<string>("SingerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -54,6 +49,11 @@ namespace MySupermarket.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("songname");
+
+                    b.Property<string>("SongPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("songpath");
 
                     b.Property<string>("SongTime")
                         .IsRequired()

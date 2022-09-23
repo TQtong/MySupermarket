@@ -14,6 +14,6 @@ namespace MySupermarket.Services.Interfaces.ViewModelInterfaces.Music
         /// 播放音乐
         /// </summary>
         /// <param name="obj"></param>
-        void Play(object obj);
+        Task<string> Play(object obj);
     }
 }

@@ -99,7 +99,7 @@ namespace MySupermarket.ViewModels
             this.container = container;
             this.dialog = dialog;
 
-            this.aggregator = container.Resolve<IEventAggregator>();
+            this.aggregator = this.container.Resolve<IEventAggregator>();
             aggregator.GetEvent<UserNameEvent>().Subscribe(GetName);
         }
 
