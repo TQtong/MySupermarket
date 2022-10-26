@@ -76,8 +76,8 @@ namespace MySupermarket.Modules.ModuleName.Managers.Music
             var result = await service.GetFirstOfDefaultAsync(SelectMusic.SongName);
 
             Mp3FileReader mp3File = new Mp3FileReader(result.Result.SongPath);
-            WaveFileWriter.CreateWaveFile(Path.Combine(WAVDirPath, $"{result.Result.SongName}.wav"), mp3File);//.mp3转换成.wav格式
-            FileInfo WavePath = new FileInfo(Path.Combine(WAVDirPath, $"{result.Result.SongName}.wav"));//读取wav文件
+            //WaveFileWriter.CreateWaveFile(Path.Combine(WAVDirPath, $"{result.Result.SongName}.wav"), mp3File);//.mp3转换成.wav格式
+            //FileInfo WavePath = new FileInfo(Path.Combine(WAVDirPath, $"{result.Result.SongName}.wav"));//读取wav文件
             WasapiLoopbackCapture cap = new WasapiLoopbackCapture();
             cap.DataAvailable += (s, args) =>
             {
